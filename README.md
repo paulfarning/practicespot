@@ -1,8 +1,8 @@
-Practicespot
+Practice Spot
 ============
 
-Simple Python script to read the contents of a directory's subdirectories containing mp3s
-and generating a static html page to list the directory names, file names and file lengths.
+Practice Spot is a Python script to read the contents of a directory's subdirectories containing mp3s
+and generate a static html page to list the directory names, file names and file lengths.
 
 Designed to make sharing of band practice recordings easy and is limited based on
 those needs.
