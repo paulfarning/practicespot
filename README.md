@@ -35,8 +35,17 @@ I run this on Dreamhost. This is how I installed and use mpeg1audio in that envi
 		import os
 		sys.path.append(os.environ['HOME'] + '/lib/python')
 
-### Full usage + bash script
-Here's how I use this with the included bash script to add a session.
+### Full usage + bash scripts
+Here are two ways to use this with the included bash scripts. One version runs a local script while the other is a two step process of upload and then run a remote script.
+
+#### Local script.
+
+1. Create a local directory with mp3 files.
+2. Run push.sh locally:
+
+		$ bash push.sh user@host dirname
+
+#### Two step with remove script.
 
 1. Create a local directory with mp3 files.
 2. Upload the files:
@@ -44,13 +53,20 @@ Here's how I use this with the included bash script to add a session.
 		$ scp -r local/path/to/dirname user@host:remote/path/to/dirname
 
 3. SSH to server.
-4. Run bash script:
+4. Run add.sh on remote server:
 
 		$ bash add.sh dirname
 
 
-### Bash script
-This script takes a new directory name as an argument or prompt, prepares it and regenerates the listing.
+### Bash scripts
+__push.sh__ takes a host name and a new directory name as arguments or prompt, uploads the directory, prepares it and regenerates the listing.
+
+1. Directory is uploaded using scp.
+2. `.DS_Store` files are removed.
+3. The directory is zipped and that zip is added to the directory.
+4. Listing is regenerated.
+
+__add.sh__ takes a new directory name as an argument or prompt, prepares it and regenerates the listing.
 
 1. `.DS_Store` files are removed.
 2. The directory is zipped and that zip is added to the directory.
