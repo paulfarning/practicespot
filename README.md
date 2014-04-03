@@ -45,7 +45,7 @@ Here are two ways to use this with the included bash scripts. One version runs a
 
 		$ bash push.sh user@host dirname
 
-#### Two step with remove script.
+#### Two step with remote script.
 
 1. Create a local directory with mp3 files.
 2. Upload the files:
