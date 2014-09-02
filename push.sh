@@ -6,13 +6,15 @@ if [ $# -lt 2 ] ; then
 	HOSTNAME=$HOST
 	echo Enter directory name:
 	read DIR
-	AUDIODIR=$DIR
+  FULLDIR=$DIR
 else
-	HOSTNAME=$1
-	AUDIODIR=$2
+  HOSTNAME=$1
+  FULLDIR=$2
 fi
 
-scp -r ./$AUDIODIR $HOSTNAME:audio/$AUDIODIR
+AUDIODIR=$(basename $FULLDIR)
+
+scp -r ./$FULLDIR $HOSTNAME:audio/$AUDIODIR
 
 ssh $HOSTNAME bash -c "'
 rm audio/$AUDIODIR/.DS_Store
