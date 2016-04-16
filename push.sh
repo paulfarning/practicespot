@@ -18,7 +18,7 @@ scp -r ./$FULLDIR $HOSTNAME:audio/$AUDIODIR
 
 ssh $HOSTNAME bash -c "'
 rm audio/$AUDIODIR/.DS_Store
-zip -r -u audio/$AUDIODIR.zip audio/$AUDIODIR
+zip -r -u -j audio/$AUDIODIR.zip audio/$AUDIODIR
 mv audio/$AUDIODIR.zip audio/$AUDIODIR
 echo "Start build"
 python lib/build.py
